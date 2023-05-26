@@ -1,4 +1,5 @@
 from smiley import Smiley
+import time
 
 
 class Sad(Smiley):
@@ -24,3 +25,10 @@ class Sad(Smiley):
         eyes = [10, 13, 18, 21]
         for pixel in eyes:
             self.pixels[pixel] = self.BLANK if wide_open else self.YELLOW
+
+    def blink(self,delay=0.25):
+        self.draw_eyes(wide_open=False)
+        self.show()
+        time.sleep(delay)
+        self.draw_eyes(wide_open=True)
+        self.show()
