@@ -4,7 +4,7 @@ import time
 
 class Sad(Smiley):
     def __init__(self):
-        super().__init__()
+        super().__init__(complexion=self.BLUE)
 
         self.draw_mouth()
         self.draw_eyes()
@@ -24,7 +24,7 @@ class Sad(Smiley):
         """
         eyes = [10, 13, 18, 21]
         for pixel in eyes:
-            self.pixels[pixel] = self.BLANK if wide_open else Smiley.complexion(self)
+            self.pixels[pixel] = self.BLANK if wide_open else self.my_complexion
 
     def blink(self,delay=0.25):
         self.draw_eyes(wide_open=False)
